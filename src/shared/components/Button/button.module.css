@@ -1,0 +1,17 @@
+.more {
+    
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #c576b4;;
+    color: #ffffff;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 250ms linear;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
