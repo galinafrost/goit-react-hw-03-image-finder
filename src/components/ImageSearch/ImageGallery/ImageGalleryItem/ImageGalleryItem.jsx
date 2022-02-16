@@ -6,7 +6,7 @@ const ImageGalleryItem = ({ webformatURL, tags, onClick }) => {
 
   return (
     <li onClick={onClick} className={styles.item}>
-          <img src={webformatURL} alt={tags} />
+          <img className={styles.itemFoto} src={webformatURL} alt={tags} />
         </li>
   );
 };

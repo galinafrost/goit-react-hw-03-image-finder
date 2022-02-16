@@ -1,12 +1,14 @@
 import { Component } from 'react';
+import { Hearts } from  'react-loader-spinner'
+
 
 import Searchbar from './Searchbar';
 import ImageGallery from './ImageGallery';
-import Loader from '../../shared/components/Loader';
 import Button from '../../shared/components/Button';
 import Modal from '../../shared/components/Modal';
 
 import { searchImages } from '../../shared/services/images';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import styles from './image-search.module.css';
 
@@ -91,7 +93,7 @@ class ImageSearchAll extends Component {
           <p>Упс, а ничего нет, попробуйте найти синоним</p>
         )}
         <ImageGallery handleClick={showModal} images={images} />
-        {loading && <Loader text="Подождите, у вас плохой Интернет" />}
+        {loading && <Hearts color="#c576b4" height={80} width={80} />}
         {modalOpen && (
           <Modal handleClose={hideModal}>
             <div>

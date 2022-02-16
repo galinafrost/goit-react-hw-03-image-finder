@@ -10,7 +10,7 @@ const ImageGallery = ({ images, handleClick }) => {
   ));
   console.log(elements);
   return (
-    <div>
+    <div className={styles.listItems}>
       <ul className={styles.list}>{elements}</ul>
     </div>
   );
