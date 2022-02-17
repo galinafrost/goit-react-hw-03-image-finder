@@ -64,7 +64,15 @@ class ImageSearchAll extends Component {
         page: page + 1,
       };
     });
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    }, 500);
   };
+
 
   showModal = image => {
     this.setState({
@@ -79,6 +87,8 @@ class ImageSearchAll extends Component {
       modalContent: null,
     });
   };
+
+  
 
   render() {
     const { changeSearch, loadMore, showModal, hideModal } = this;

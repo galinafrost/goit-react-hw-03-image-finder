@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styles from './image-gallery-item.css';
+import styles from './image-gallery-item.module.css';
 
 const ImageGalleryItem = ({ webformatURL, tags, onClick }) => {
 
