@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import { Hearts } from  'react-loader-spinner'
-
+import { Hearts } from 'react-loader-spinner';
 
 import Searchbar from './Searchbar';
 import ImageGallery from './ImageGallery';
@@ -8,7 +7,7 @@ import Button from '../../shared/components/Button';
 import Modal from '../../shared/components/Modal';
 
 import { searchImages } from '../../shared/services/images';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 import styles from './image-search.module.css';
 
@@ -73,7 +72,6 @@ class ImageSearchAll extends Component {
     }, 500);
   };
 
-
   showModal = image => {
     this.setState({
       modalOpen: true,
@@ -88,8 +86,6 @@ class ImageSearchAll extends Component {
     });
   };
 
-  
-
   render() {
     const { changeSearch, loadMore, showModal, hideModal } = this;
     const { loading, images, error, search, modalContent, modalOpen } =
@@ -103,7 +99,7 @@ class ImageSearchAll extends Component {
           <p>Упс, а ничего нет, попробуйте найти синоним</p>
         )}
         <ImageGallery handleClick={showModal} images={images} />
-        {loading && <Hearts color="#c576b4" height={80} width={80} />}
+
         {modalOpen && (
           <Modal handleClose={hideModal}>
             <div>
@@ -111,13 +107,21 @@ class ImageSearchAll extends Component {
             </div>
           </Modal>
         )}
-        {Boolean(images.length) && (
-          <Button onClick={loadMore} text="Еще" />
-        )}
+        <div className={styles.load}>
+          {loading && (
+            <Hearts
+              className={styles.loader}
+              color="#c576b4"
+              height={500}
+              width={500}
+              timeout={3000}
+            />
+          )}
+        </div>
+        {Boolean(images.length) && <Button onClick={loadMore} text="Еще" />}
       </div>
     );
   }
 }
 
 export default ImageSearchAll;
-
