@@ -22,6 +22,17 @@ class ImageSearchAll extends Component {
     modalContent: null,
   };
 
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   // Добавляются ли в список новые элементы?
+  //   // Запоминаем значение прокрутки, чтобы использовать его позже.
+  //   if (prevState.images.length < this.state.images.length) {
+  //     // const list = this.listRef.current;
+  //     // return list.scrollHeight - list.scrollTop
+  //    return true
+  //   }
+  //   return null;
+  // }
+
   componentDidUpdate(prevProps, prevState) {
     const { search, page } = this.state;
     if (search !== prevState.search || page !== prevState.page) {
@@ -30,6 +41,13 @@ class ImageSearchAll extends Component {
       });
       this.fetchImages();
     }
+    // if (snapshot) {
+    //   window.scrollTo({
+    //     top: document.documentElement.scrollHeight,
+    //     behavior: 'smooth',
+    //   });
+
+    // }
   }
 
   async fetchImages() {
@@ -65,10 +83,14 @@ class ImageSearchAll extends Component {
     });
 
     setTimeout(() => {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth',
-      });
+      // window.scrollTo({
+      //   top: document.documentElement.scrollHeight,
+      //   behavior: 'smooth',
+      // });
+      console.log(
+        'document.documentElement.scrollHeight setTimeout,',
+        document.documentElement.scrollHeight
+      );
     }, 500);
   };
 
@@ -119,6 +141,7 @@ class ImageSearchAll extends Component {
           )}
         </div>
         {Boolean(images.length) && <Button onClick={loadMore} text="Еще" />}
+        <div></div>
       </div>
     );
   }
